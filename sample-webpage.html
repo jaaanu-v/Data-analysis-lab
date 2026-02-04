@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Webpage</title>
+    <style>
+    .custom-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border: 2px solid #e63946;
+        border-radius: 10px;
+        padding: 30px 40px;
+        font-size: 1.5em;
+        color: #e63946;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        z-index: 9999;
+        text-align: center;
+    }
+    /* Removed button styling since no button is shown */
+    </style>
+    <script>
+    window.onload = function() {
+        var goodMsg = document.getElementById('good-message');
+        var msgText = document.getElementById('good-message-text');
+        document.getElementById('yes-check').addEventListener('change', function() {
+            if (this.checked) {
+                msgText.textContent = 'Good';
+                goodMsg.style.display = 'block';
+                setTimeout(function() {
+                    goodMsg.style.display = 'none';
+                }, 2000);
+            }
+        });
+        document.getElementById('no-check').addEventListener('change', function() {
+            if (this.checked) {
+                msgText.textContent = 'Good!';
+                goodMsg.style.display = 'block';
+                setTimeout(function() {
+                    goodMsg.style.display = 'none';
+                }, 2000);
+            }
+        });
+    };
+    </script>
+    <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #FFDAB9;
+    }
+    h1, p {
+        text-align: center;
+    }
+    </style>
+    <style>
+    .custom-checkbox {
+        position: absolute;
+        width: 100px;
+        height: 80px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+        .checkbox-mark {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            pointer-events: none;
+            z-index: 1;
+            font-size: 2em;
+            color: #e63946;
+            text-align: center;
+            line-height: 80px;
+            display: none;
+        }
+    .custom-checkbox:checked + .checkbox-mark {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <h1>I've got a question for you <3</h1>
+    <div id="good-message" class="custom-message">
+        <span id="good-message-text">Good</span>
+    </div>
+        <div style="position: relative; display: inline-block; width: 50%;">
+            <img src="https://i.etsystatic.com/40442550/r/il/2baf1e/4594698141/il_1588xN.4594698141_5qce.jpg" alt="Valentine's Day Card" style="width:100%;height:auto;">
+            <!-- Custom Yes checkbox (left) -->
+                <input type="checkbox" class="custom-checkbox" style="top: 72%; left: 18%;" id="yes-check">
+                <span class="checkbox-mark" style="top: 72%; left: 17%;">❤️</span>
+                <!-- Custom No checkbox (right) -->
+                <input type="checkbox" class="custom-checkbox" style="top: 75%; left: 52%;" id="no-check">
+                <span class="checkbox-mark" style="top: 72%; left: 54%;">❤️</span>
+        </div>
+</body>
+</html>
